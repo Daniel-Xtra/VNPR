@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "VNPRI",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

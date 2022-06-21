@@ -1,0 +1,7 @@
+{
+  "name": "VNPRI",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
