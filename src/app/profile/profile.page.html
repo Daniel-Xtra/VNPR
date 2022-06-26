@@ -1,0 +1,33 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <img
+      slot="end"
+      src=""
+      class="avatar"
+      onError="this.src='assets/avatar.png';"
+    />
+    <div class="icon-box">
+      <ion-icon name="camera"></ion-icon>
+    </div>
+
+    <ion-row>
+      <ion-col size="12">
+        <h3 class="ion-text-center">Rolex</h3>
+        <p>firstname <span>Daniel</span></p>
+        <p>lastname <span>Akanbi</span></p>
+        <p>email <span>danielakanbi@gmail.com</span></p>
+        <p>phone number <span>08142975911</span></p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

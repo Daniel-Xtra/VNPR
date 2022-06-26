@@ -1,3 +1,72 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg">
+        <div class="header-content"></div>
+      </div>
+      <ion-list class="menu-item">
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="home"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="home-sharp" slot="start"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="add-official"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="person-add-sharp" slot="start"></ion-icon>
+            <ion-label>Add Official</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="add-vehicle"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="car-sport-sharp" slot="start"></ion-icon>
+            <ion-label>Add Vehicle</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="identify"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="search-sharp" slot="start"></ion-icon>
+            <ion-label>Identify</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="scan"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="qr-code-sharp" slot="start"></ion-icon>
+            <ion-label>Scan</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="login"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

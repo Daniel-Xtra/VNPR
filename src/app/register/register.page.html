@@ -1,0 +1,80 @@
+<ion-content class="ion-padding">
+  <img
+    src="https://purple.ai/wp-content/uploads/2020/04/guest-wifi-featured.png"
+  />
+  <form>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Firstname</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Lastname</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Gender</ion-label>
+          <ion-select interface="action-sheet">
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Phone number</ion-label>
+          <ion-input type="tel"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input
+            #password
+            [type]="passwordType"
+            clearOnEdit="false"
+            required
+          >
+          </ion-input>
+          <ion-icon
+            [name]="passwordIcon"
+            (click)="hideShowPassword()"
+            slot="end"
+          ></ion-icon>
+        </ion-item>
+      </ion-col>
+      <div class="terms">
+        <ion-checkbox #privacy></ion-checkbox>
+        <ion-note
+          >I agree with the <a href="#">Terms and Condition</a> and the
+          <a href="#">Privacy Policy</a>
+        </ion-note>
+        <div class="details"></div>
+      </div>
+      <ion-col class="ion-text-center">
+        <ion-button>SIGN UP</ion-button>
+        <p>
+          Already have an account? <a (click)="goToPage('login')">Login Here</a>
+        </p>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

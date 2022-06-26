@@ -1,0 +1,46 @@
+ion-header {
+  --ion-background-color: #e1d4e4;
+
+  ion-menu-button {
+    --color: #711bd4;
+  }
+}
+
+ion-content {
+  --ion-background-color: #f2edf2;
+}
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+ion-button {
+  // margin: 10px;
+  --background: #711bd4;
+}
+
+.scan-box {
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 100vmax rgb(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  left: 50%;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+.scan-button {
+  margin: 0px;
+  position: absolute;
+  bottom: 100px;
+  width: 100vw;
+  height: 50px;
+  z-index: 11;
+}

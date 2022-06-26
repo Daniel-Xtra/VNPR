@@ -1,0 +1,30 @@
+ion-header {
+  --ion-background-color: #f2edf2;
+
+  ion-menu-button {
+    --color: #711bd4;
+  }
+}
+
+ion-content {
+  --ion-background-color: #f2edf2;
+}
+
+ion-item {
+  margin-top: 10px;
+  --ion-background-color: #e1d4e457;
+}
+
+ion-button {
+  margin: 20px;
+  --background: #711bd4;
+}
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
