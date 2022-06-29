@@ -16,13 +16,13 @@
   </div>
 
   <div class="ion-padding form">
-    <form>
-      <ion-row (click)="toggle()">
+    <form [formGroup]="addVehForm">
+      <ion-row>
         <ion-col size="2">
           <ion-icon name="add-circle-sharp" *ngIf="!first"></ion-icon>
           <ion-icon name="remove-circle-sharp" *ngIf="first"></ion-icon>
         </ion-col>
-        <ion-col size="10">
+        <ion-col size="10" (click)="toggle()">
           <h3>vehicle information</h3>
         </ion-col>
         <div *ngIf="first">
@@ -30,7 +30,11 @@
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">vehicle category</ion-label>
-                <ion-select interface="action-sheet">
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="category"
+                  required
+                >
                   <ion-select-option value="commercial"
                     >Commerical</ion-select-option
                   >
@@ -44,19 +48,31 @@
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">plate number</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input
+                  type="text"
+                  formControlName="plate_number"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">color</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input
+                  type="text"
+                  formControlName="color"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">fuel type</ion-label>
-                <ion-select interface="action-sheet">
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="fuel_type"
+                  required
+                >
                   <ion-select-option value="diesel">Diesel</ion-select-option>
                   <ion-select-option value="petrol">Petrol</ion-select-option>
                 </ion-select>
@@ -65,13 +81,21 @@
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">chassis number</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input
+                  type="text"
+                  formControlName="chassis_no"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">engine capacity</ion-label>
-                <ion-select interface="action-sheet">
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="engine_capacity"
+                  required
+                >
                   <ion-select-option value="above 3.0"
                     >Above 3.0</ion-select-option
                   >
@@ -90,172 +114,176 @@
             <ion-col size="12">
               <ion-item>
                 <ion-label position="stacked">tank capacity</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input
+                  type="text"
+                  formControlName="tank_capacity"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
         </div>
       </ion-row>
-      <ion-row (click)="viewing()">
+      <ion-row>
         <ion-col size="2">
           <ion-icon name="add-circle-sharp" *ngIf="!second"></ion-icon>
           <ion-icon name="remove-circle-sharp" *ngIf="second"></ion-icon>
         </ion-col>
-        <ion-col size="10">
+        <ion-col size="10" (click)="viewing()">
           <h3>owner information</h3>
         </ion-col>
         <div *ngIf="second">
           <ion-row>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">vehicle category</ion-label>
-                <ion-select interface="action-sheet">
-                  <ion-select-option value="commercial"
-                    >Commerical</ion-select-option
+                <ion-label position="stacked">owner identification</ion-label>
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="owner_identification"
+                  required
+                >
+                  <ion-select-option value="driver`s license"
+                    >Driver`s License</ion-select-option
                   >
-                  <ion-select-option value="government"
-                    >Government</ion-select-option
+                  <ion-select-option value="national ID card"
+                    >National ID Card</ion-select-option
                   >
-                  <ion-select-option value="private">Private</ion-select-option>
+                  <ion-select-option value="others">Others</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">plate number</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col size="12">
-              <ion-item>
-                <ion-label position="stacked">color</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col size="12">
-              <ion-item>
-                <ion-label position="stacked">fuel type</ion-label>
-                <ion-select interface="action-sheet">
-                  <ion-select-option value="diesel">Diesel</ion-select-option>
-                  <ion-select-option value="petrol">Petrol</ion-select-option>
+                <ion-label position="stacked">title</ion-label>
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="title"
+                  required
+                >
+                  <ion-select-option value="mr">Mr.</ion-select-option>
+                  <ion-select-option value="mrs">Mrs.</ion-select-option>
+                  <ion-select-option value="dr">Dr.</ion-select-option>
+                  <ion-select-option value="prof">Prof.</ion-select-option>
+                  <ion-select-option value="engr">Engr.</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">chassis number</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label position="stacked">first name</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="first_name"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">engine capacity</ion-label>
-                <ion-select interface="action-sheet">
-                  <ion-select-option value="above 3.0"
-                    >Above 3.0</ion-select-option
-                  >
-                  <ion-select-option value="below 1.6"
-                    >Below 1.6</ion-select-option
-                  >
-                  <ion-select-option value="between 1.6 and 2.6"
-                    >Between 1.6 and 2.6</ion-select-option
-                  >
-                  <ion-select-option value="between 2.1 and 3.0"
-                    >Between 2.1 and 3.0</ion-select-option
-                  >
-                </ion-select>
+                <ion-label position="stacked">last name</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="last_name"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">tank capacity</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label position="stacked">identification number</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="identification_no"
+                  required
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">email address</ion-label>
+                <ion-input
+                  type="email"
+                  formControlName="email"
+                  required
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">address</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="address"
+                  required
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">mobile number</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="phone_number"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
         </div>
       </ion-row>
-      <ion-row (click)="showing()">
+      <ion-row>
         <ion-col size="2">
           <ion-icon name="add-circle-sharp" *ngIf="!third"></ion-icon>
           <ion-icon name="remove-circle-sharp" *ngIf="third"></ion-icon>
         </ion-col>
-        <ion-col size="10">
+        <ion-col size="10" (click)="showing()">
           <h3>other information</h3>
         </ion-col>
         <div *ngIf="third">
           <ion-row>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">vehicle category</ion-label>
-                <ion-select interface="action-sheet">
-                  <ion-select-option value="commercial"
-                    >Commerical</ion-select-option
-                  >
-                  <ion-select-option value="government"
-                    >Government</ion-select-option
-                  >
-                  <ion-select-option value="private">Private</ion-select-option>
-                </ion-select>
+                <ion-label position="stacked">drivers license number</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="driver_license_no"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">plate number</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label position="stacked">license bearer name</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="license_bearer_name"
+                  required
+                ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col size="12">
               <ion-item>
-                <ion-label position="stacked">color</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col size="12">
-              <ion-item>
-                <ion-label position="stacked">fuel type</ion-label>
-                <ion-select interface="action-sheet">
-                  <ion-select-option value="diesel">Diesel</ion-select-option>
-                  <ion-select-option value="petrol">Petrol</ion-select-option>
-                </ion-select>
-              </ion-item>
-            </ion-col>
-            <ion-col size="12">
-              <ion-item>
-                <ion-label position="stacked">chassis number</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col size="12">
-              <ion-item>
-                <ion-label position="stacked">engine capacity</ion-label>
-                <ion-select interface="action-sheet">
-                  <ion-select-option value="above 3.0"
-                    >Above 3.0</ion-select-option
-                  >
-                  <ion-select-option value="below 1.6"
-                    >Below 1.6</ion-select-option
-                  >
-                  <ion-select-option value="between 1.6 and 2.6"
-                    >Between 1.6 and 2.6</ion-select-option
-                  >
-                  <ion-select-option value="between 2.1 and 3.0"
-                    >Between 2.1 and 3.0</ion-select-option
+                <ion-label position="stacked"
+                  >state of plate number allocation</ion-label
+                >
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="state_of_plateNo_allocation"
+                  required
+                >
+                  <ion-select-option *ngFor="let state of States"
+                    >{{state}}</ion-select-option
                   >
                 </ion-select>
-              </ion-item>
-            </ion-col>
-            <ion-col size="12">
-              <ion-item>
-                <ion-label position="stacked">tank capacity</ion-label>
-                <ion-input type="text"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
         </div>
       </ion-row>
 
-      <ion-button>submit</ion-button>
+      <ion-button [disabled]="!addVehForm.valid" (click)="vehReg()"
+        >submit</ion-button
+      >
     </form>
   </div>
 </ion-content>

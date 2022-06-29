@@ -8,52 +8,83 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form>
+  <form [formGroup]="signupForm">
     <ion-row>
-      <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Username</ion-label>
-          <ion-input type="text"></ion-input>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input
+            type="text"
+            formControlName="username"
+            required
+            name="username"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Firstname</ion-label>
-          <ion-input type="text"></ion-input>
+        <ion-item>
+          <ion-label position="stacked">Firstname</ion-label>
+          <ion-input
+            type="text"
+            formControlName="first_name"
+            required
+            name="first_name"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Lastname</ion-label>
-          <ion-input type="text"></ion-input>
+        <ion-item>
+          <ion-label position="stacked">Lastname</ion-label>
+          <ion-input
+            type="text"
+            formControlName="last_name"
+            required
+            name="last_name"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Gender</ion-label>
+          <ion-select
+            interface="action-sheet"
+            formControlName="gender"
+            required
+            name="gender"
+          >
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+          </ion-select>
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Date of birth</ion-label>
-          <ion-input type="Date"></ion-input>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input
+            type="text"
+            formControlName="email"
+            required
+            name="email"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Username</ion-label>
-          <ion-input type="text"></ion-input>
+        <ion-item>
+          <ion-label position="stacked">Phone number</ion-label>
+          <ion-input
+            type="tel"
+            formControlName="phone"
+            name="phone"
+            required
+          ></ion-input>
         </ion-item>
       </ion-col>
-      <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12">
-        <ion-item lines="none">
-          <ion-label position="floating">Phone number</ion-label>
-          <ion-input type="tel"></ion-input>
-        </ion-item>
-      </ion-col>
+
       <ion-col class="ion-text-center">
-        <ion-button>ADD OFFICIAL</ion-button>
+        <ion-button [disabled]="!signupForm.valid" (click)="userReg()"
+          >ADD OFFICIAL</ion-button
+        >
       </ion-col>
     </ion-row>
   </form>

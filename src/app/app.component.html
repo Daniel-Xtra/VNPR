@@ -56,11 +56,7 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item
-            lines="none"
-            routerLink="login"
-            [routerLinkActive]="['active']"
-          >
+          <ion-item lines="none" (click)="logout()">
             <ion-icon name="exit" slot="start"></ion-icon>
             <ion-label>Logout</ion-label>
           </ion-item>

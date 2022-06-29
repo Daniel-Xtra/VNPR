@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/dot-notation */
+/* eslint-disable no-underscore-dangle */
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { StorageKey } from '../app.enums';
+import { Helpers } from '../app.helpers';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +11,25 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  linkSlideOpts = {
-    slidesPerView: 1.1,
-    spaceBetween: 4,
-    slidesOffsetBefore: 11,
-    loop: true,
-  };
+  image;
+  firstname;
+  lastname;
+  membership;
+  constructor(private navCtrl: NavController, private _helpers: Helpers) {
+    this.getImage();
+  }
 
-  constructor(private navCtrl: NavController) {}
+  getImage() {
+    this._helpers.get(StorageKey.user).then((res) => {
+      this.firstname = res.first_name;
+      this.lastname = res.last_name;
+      this.membership = res.membership_type;
+      this.image = res['profile'].profile_picture_url;
+      console.log(this.image);
+    });
+  }
 
   goToPage(page) {
-    this.navCtrl.navigateRoot(page);
+    this.navCtrl.navigateForward(page);
   }
 }

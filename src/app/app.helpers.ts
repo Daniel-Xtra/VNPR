@@ -1,3 +1,5 @@
+/* eslint-disable @angular-eslint/contextual-lifecycle */
+/* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable id-blacklist */
 /* eslint-disable arrow-body-style */
@@ -5,7 +7,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/quotes */
 import { Storage } from '@ionic/storage';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {
   ModalController,
   ModalOptions,
@@ -25,9 +27,12 @@ import { EventsType } from './app.enums';
 
 @Injectable()
 export class Helpers {
+  stopProgressBar() {
+    throw new Error('Method not implemented.');
+  }
   isSubscribedToNavEvents: boolean;
   activePageIcon: string;
-  // loading: Loading;
+  loading;
   registerBackButton: any;
   constructor(
     // private events: Events,
@@ -40,7 +45,13 @@ export class Helpers {
     private loadingCtrl: LoadingController,
     private storage: Storage,
     private modalCtrl: ModalController
-  ) {}
+  ) {
+    this.storage.create();
+  }
+
+  // async ngOnInit() {
+  //   await this.storage.create();
+  // }
 
   removeFromDB(key: StorageKey) {
     return this.storage.remove(key);
@@ -81,18 +92,20 @@ export class Helpers {
 
   async createLoader(message, cssClass = '') {
     this.registerBackButton = this.handleBackButton();
-    const loading = await this.loadingCtrl.create({
+    this.loading = await this.loadingCtrl.create({
       message,
       cssClass,
     });
-    await loading.present();
+    await this.loading.present();
 
     // this.loading.didLeave.subscribe(() => this.registerBackButton());
     // return this.loading;
   }
 
   dismissLoader() {
-    this.loadingCtrl.dismiss();
+    if (this.loading) {
+      this.loading.dismiss();
+    }
     // if (this.loading) {
     //   return this.loading.dismiss().then(() => {
     //     this.loading = null as Loading;

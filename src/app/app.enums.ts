@@ -31,6 +31,8 @@ export enum StorageKey {
   user_id = 'user_id',
   user_name = 'user_name',
   user_obj = 'user_obj',
+  verify_mail = 'verify_mail',
+  code = 'code',
 }
 
 /**

@@ -6,7 +6,7 @@
 
     <img
       slot="end"
-      src=""
+      src="{{this.image}}"
       class="avatar"
       onError="this.src='assets/avatar.png';"
       (click)="goToPage('profile')"
@@ -19,8 +19,10 @@
     <ion-card class="ion-text-left" id="display">
       <ion-card-content>
         <p class="ion-padding-top">Howdy</p>
-        <h2 class="ion-padding-top">Daniel Akanbi</h2>
-        <p class="ion-padding-top">Admin</p>
+        <h2 class="ion-padding-top ion-text-capitalize">
+          {{firstname}} {{lastname}}
+        </h2>
+        <p class="ion-padding-top ion-text-capitalize">{{membership}}</p>
       </ion-card-content>
     </ion-card>
 

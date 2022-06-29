@@ -2,31 +2,51 @@
   <img
     src="https://purple.ai/wp-content/uploads/2020/04/guest-wifi-featured.png"
   />
-  <form>
+  <form [formGroup]="signupForm">
     <ion-row>
       <ion-col>
         <ion-item>
           <ion-label position="stacked">Username</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="username"
+            required
+            name="username"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">Firstname</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="first_name"
+            required
+            name="first_name"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">Lastname</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="last_name"
+            required
+            name="last_name"
+          ></ion-input>
         </ion-item>
       </ion-col>
 
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">Gender</ion-label>
-          <ion-select interface="action-sheet">
+          <ion-select
+            interface="action-sheet"
+            formControlName="gender"
+            required
+            name="gender"
+          >
             <ion-select-option value="male">Male</ion-select-option>
             <ion-select-option value="female">Female</ion-select-option>
           </ion-select>
@@ -35,13 +55,23 @@
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">Email</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="email"
+            required
+            name="email"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">Phone number</ion-label>
-          <ion-input type="tel"></ion-input>
+          <ion-input
+            type="tel"
+            formControlName="phone"
+            name="phone"
+            required
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
@@ -50,8 +80,9 @@
           <ion-input
             #password
             [type]="passwordType"
-            clearOnEdit="false"
+            formControlName="password"
             required
+            name="password"
           >
           </ion-input>
           <ion-icon
@@ -70,7 +101,11 @@
         <div class="details"></div>
       </div>
       <ion-col class="ion-text-center">
-        <ion-button>SIGN UP</ion-button>
+        <ion-button
+          [disabled]="!signupForm.valid || !privacy.checked"
+          (click)="userReg()"
+          >SIGN UP</ion-button
+        >
         <p>
           Already have an account? <a (click)="goToPage('login')">Login Here</a>
         </p>

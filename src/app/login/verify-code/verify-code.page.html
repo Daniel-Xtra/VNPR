@@ -12,18 +12,21 @@
     <h3>verify email</h3>
     <p>
       please enter the code sent to <br />
-      your mail danielakanbi@gmail.com
+      your mail <strong>{{mail}}</strong>
     </p>
-    <form class="ion-padding">
+
+    <form class="ion-padding" [formGroup]="signupForm">
       <ion-row>
         <ion-col size="12">
           <ion-item>
             <ion-label position="stacked">Reset Code</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" formControlName="code"></ion-input>
           </ion-item>
         </ion-col>
         <!-- <ion-col size="12"> -->
-        <ion-button (click)="goToPage('login/new-password')">Verify</ion-button>
+        <ion-button [disabled]="!signupForm.valid" (click)="verify()"
+          >Verify</ion-button
+        >
         <!-- </ion-col> -->
       </ion-row>
     </form>
