@@ -1,0 +1,62 @@
+ion-header {
+  --ion-background-color: #f2edf2;
+
+  ion-back-button,
+  ion-menu-button {
+    --color: #711bd4;
+  }
+}
+
+ion-content {
+  --ion-background-color: #f2edf2;
+}
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 30px -50px;
+  position: relative;
+
+  top: 50%;
+  left: 50%;
+  border: 1px solid #711bd4;
+}
+
+.icon-box {
+  border: solid 2px #ffffff;
+  background: #ffffff;
+  color: #711bd4;
+  padding: 5px;
+  border-radius: 50%;
+  margin: 30px -50px;
+  position: absolute;
+  top: 11%;
+  left: 70%;
+  height: 30px;
+  width: 30px;
+}
+
+h3 {
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+
+p {
+  padding-bottom: 30px;
+  span {
+    float: right;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}

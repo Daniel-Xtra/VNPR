@@ -1,20 +1,64 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <img
+      slot="end"
+      src=""
+      class="avatar"
+      onError="this.src='assets/avatar.png';"
+      (click)="goToPage('profile')"
+    />
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card class="ion-text-left" id="display">
+      <ion-card-content>
+        <p class="ion-padding-top">Howdy</p>
+        <h2 class="ion-padding-top">Daniel Akanbi</h2>
+        <p class="ion-padding-top">Admin</p>
+      </ion-card-content>
+    </ion-card>
+
+    <h3 class="ion-padding ion-text-left">Quick Links</h3>
+
+    <ion-row class="link">
+      <ion-col size="6">
+        <ion-card (click)="goToPage('add-official')">
+          <ion-card-content>
+            <ion-icon name="person-add-sharp"></ion-icon>
+            <p>Add Official</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="goToPage('add-vehicle')">
+          <ion-card-content>
+            <ion-icon name="car-sport-sharp"></ion-icon>
+            <p>Add Vehicle</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="goToPage('identify')">
+          <ion-card-content>
+            <ion-icon name="search-sharp"></ion-icon>
+            <p>Identify</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="goToPage('scan')">
+          <ion-card-content>
+            <ion-icon name="qr-code-sharp"></ion-icon>
+            <p>Scan</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>

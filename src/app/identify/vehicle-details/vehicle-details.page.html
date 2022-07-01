@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    ><ion-buttons slot="start"
+      ><ion-back-button defaultHref="/"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="upper">
+    <h1 class="ion-padding">
+      VEHICLE <br /><br />
+      DETAILS
+    </h1>
+  </div>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <p>name <span></span></p>
+      <p>
+        plate number
+        <span style="text-transform: none"></span>
+      </p>
+      <p>color <span></span></p>
+
+      <p>owner<span></span></p>
+      <p>phone <span></span></p>
+
+      <div *ngIf="!seeMore">
+        <p>
+          email
+          <span style="text-transform: none"></span>
+        </p>
+        <p>address<span></span></p>
+        <p>
+          owner identification
+          <span></span>
+        </p>
+        <p>
+          identification number
+          <span></span>
+        </p>
+        <!-- <p>fuel type <span>{{detail?.owner.fuel_type}}</span></p>
+        <p>owner<span>{{detail?.owner.license_bearer_name}}</span></p> -->
+      </div>
+      <ion-button (click)="switch()"
+        >{{seeMore ? 'see more' : 'see less'}}</ion-button
+      >
+    </ion-col>
+  </ion-row>
+</ion-content>

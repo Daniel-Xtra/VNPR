@@ -1,0 +1,89 @@
+<!-- <ion-content>
+  <div class="first"></div>
+  <div class="second"></div>
+  <div>
+    <ion-card>
+      <ion-card-content>
+        <h2 class="ion-text-center">Login</h2>
+        <p class="ion-text-center">Login into your account</p>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-input type="text" placeholder="Username/Email"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="12">
+            <ion-item>
+              <ion-input
+                placeholder="Password"
+                #password
+                [type]="passwordType"
+                clearOnEdit="false"
+                required
+              >
+              </ion-input>
+              <ion-icon
+                [name]="passwordIcon"
+                (click)="hideShowPassword()"
+                slot="end"
+              ></ion-icon>
+            </ion-item>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button expand="block">SUBMIT</ion-button>
+          </ion-col>
+          <ion-col size="12" class="ion-text-center">
+            <a style="font-weight: bold">Forgot Password?</a>
+          </ion-col>
+          <ion-col size="12" class="ion-text-center">
+            <small
+              >Don`t have an account?
+              <a (click)="goToPage('register')">Create Account</a></small
+            >
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content> -->
+
+<ion-content>
+  <div class="ion-text-center ion-text-capitalize">
+    <img src="https://xsurflog.com/img/bg-img/xsl-main.png" />
+    <!-- <ion-icon name="lock-closed-outline"></ion-icon> -->
+    <!-- <h2 class="ion-padding-top">welcome to vehmon</h2> -->
+  </div>
+  <form class="ion-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input [type]="passwordType" required> </ion-input>
+          <ion-icon
+            [name]="passwordIcon"
+            (click)="hideShowPassword()"
+            slot="end"
+          ></ion-icon>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button (click)="goToPage('home')">Log In</ion-button>
+      </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <a (click)="goToTabPage('login/reset-password')">Forgot Password?</a>
+      </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <p class="bottom">
+          Don`t have an account?
+          <a (click)="goToTabPage('register')">Create Account</a>
+        </p>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

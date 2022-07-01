@@ -4,19 +4,99 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+  },
+  {
+    path: 'add-official',
+    loadChildren: () =>
+      import('./add-official/add-official.module').then(
+        (m) => m.AddOfficialPageModule
+      ),
+  },
+  {
+    path: 'add-vehicle',
+    loadChildren: () =>
+      import('./add-vehicle/add-vehicle.module').then(
+        (m) => m.AddVehiclePageModule
+      ),
+  },
+  {
+    path: 'identify',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./identify/identify.module').then(
+            (m) => m.IdentifyPageModule
+          ),
+      },
+      {
+        path: 'vehicle-details',
+        loadChildren: () =>
+          import('./identify/vehicle-details/vehicle-details.module').then(
+            (m) => m.VehicleDetailsPageModule
+          ),
+      },
+    ],
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfilePageModule),
+  },
+  {
+    path: 'scan',
+    loadChildren: () =>
+      import('./scan/scan.module').then((m) => m.ScanPageModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./register/register.module').then((m) => m.RegisterPageModule),
+  },
+  {
+    path: 'login',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./login/login.module').then((m) => m.LoginPageModule),
+      },
+      {
+        path: 'reset-password',
+        loadChildren: () =>
+          import('./login/reset-password/reset-password.module').then(
+            (m) => m.ResetPasswordPageModule
+          ),
+      },
+      {
+        path: 'verify',
+        loadChildren: () =>
+          import('./login/verify-code/verify-code.module').then(
+            (m) => m.VerifyCodePageModule
+          ),
+      },
+      {
+        path: 'new-password',
+        loadChildren: () =>
+          import('./login/new-password/new-password.module').then(
+            (m) => m.NewPasswordPageModule
+          ),
+      },
+    ],
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

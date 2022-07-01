@@ -1,0 +1,245 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-title>Add Vehicle</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="upper">
+    <h1 class="ion-padding">
+      VEHICLE <br /><br />
+      REGISTRATION
+    </h1>
+  </div>
+
+  <div class="ion-padding form">
+    <form>
+      <ion-row>
+        <ion-col size="2">
+          <ion-icon name="add-circle-sharp" *ngIf="!first"></ion-icon>
+          <ion-icon name="remove-circle-sharp" *ngIf="first"></ion-icon>
+        </ion-col>
+        <ion-col size="10" (click)="toggle()">
+          <h3>vehicle information</h3>
+        </ion-col>
+        <div *ngIf="first">
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">name</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">vehicle category</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="commercial"
+                    >Commerical</ion-select-option
+                  >
+                  <ion-select-option value="government"
+                    >Government</ion-select-option
+                  >
+                  <ion-select-option value="private">Private</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">plate number</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">color</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">fuel type</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="diesel">Diesel</ion-select-option>
+                  <ion-select-option value="petrol">Petrol</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">vehicle type</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="bus">Bus</ion-select-option>
+                  <ion-select-option value="motorcycle"
+                    >Motorcycle</ion-select-option
+                  >
+                  <ion-select-option value="tricycle"
+                    >Tricycle</ion-select-option
+                  >
+                  <ion-select-option value="car">Car</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">chassis number</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">engine capacity</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="above 3.0"
+                    >Above 3.0</ion-select-option
+                  >
+                  <ion-select-option value="below 1.6"
+                    >Below 1.6</ion-select-option
+                  >
+                  <ion-select-option value="between 1.6 and 2.6"
+                    >Between 1.6 and 2.6</ion-select-option
+                  >
+                  <ion-select-option value="between 2.1 and 3.0"
+                    >Between 2.1 and 3.0</ion-select-option
+                  >
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">tank capacity</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2">
+          <ion-icon name="add-circle-sharp" *ngIf="!second"></ion-icon>
+          <ion-icon name="remove-circle-sharp" *ngIf="second"></ion-icon>
+        </ion-col>
+        <ion-col size="10" (click)="viewing()">
+          <h3>owner information</h3>
+        </ion-col>
+        <div *ngIf="second">
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">owner identification</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="driver`s license"
+                    >Driver`s License</ion-select-option
+                  >
+                  <ion-select-option value="national ID card"
+                    >National ID Card</ion-select-option
+                  >
+                  <ion-select-option value="others">Others</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">title</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="mr">Mr.</ion-select-option>
+                  <ion-select-option value="mrs">Mrs.</ion-select-option>
+                  <ion-select-option value="dr">Dr.</ion-select-option>
+                  <ion-select-option value="prof">Prof.</ion-select-option>
+                  <ion-select-option value="engr">Engr.</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">first name</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">last name</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">gender</ion-label>
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">identification number</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">email address</ion-label>
+                <ion-input type="email" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">address</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">mobile number</ion-label>
+                <ion-input type="tel" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2">
+          <ion-icon name="add-circle-sharp" *ngIf="!third"></ion-icon>
+          <ion-icon name="remove-circle-sharp" *ngIf="third"></ion-icon>
+        </ion-col>
+        <ion-col size="10" (click)="showing()">
+          <h3>other information</h3>
+        </ion-col>
+        <div *ngIf="third">
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">drivers license number</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">license bearer name</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked"
+                  >state of plate number allocation</ion-label
+                >
+                <ion-select interface="action-sheet" required>
+                  <ion-select-option *ngFor="let state of States"
+                    >{{state}}</ion-select-option
+                  >
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+
+      <ion-button>submit</ion-button>
+    </form>
+  </div>
+</ion-content>

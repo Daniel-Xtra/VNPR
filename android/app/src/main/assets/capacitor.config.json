@@ -1,0 +1,12 @@
+{
+	"appId": "com.danielakanbi.vnpri",
+	"appName": "VNPRI",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 10000,
+			"launchAutoHide": false
+		}
+	}
+}
