@@ -26,39 +26,41 @@
 
     <h3 class="ion-padding ion-text-left">Quick Links</h3>
 
-    <ion-row class="link">
-      <ion-col size="6">
-        <ion-card (click)="goToPage('add-official')">
-          <ion-card-content>
-            <ion-icon name="person-add-sharp"></ion-icon>
-            <p>Add Official</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card (click)="goToPage('add-vehicle')">
-          <ion-card-content>
-            <ion-icon name="car-sport-sharp"></ion-icon>
-            <p>Add Vehicle</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card (click)="goToPage('identify')">
-          <ion-card-content>
-            <ion-icon name="search-sharp"></ion-icon>
-            <p>Identify</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card (click)="goToPage('scan')">
-          <ion-card-content>
-            <ion-icon name="qr-code-sharp"></ion-icon>
-            <p>Scan</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+    <ion-grid>
+      <ion-row class="link">
+        <ion-col size="6" class="ion-no-padding">
+          <ion-card (click)="goToPage('add-official')">
+            <ion-card-content>
+              <ion-icon name="person-add-sharp"></ion-icon>
+              <p>Add Official</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding">
+          <ion-card (click)="goToPage('add-vehicle')">
+            <ion-card-content>
+              <ion-icon name="car-sport-sharp"></ion-icon>
+              <p>Add Vehicle</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding">
+          <ion-card (click)="goToPage('identify')">
+            <ion-card-content>
+              <ion-icon name="search-sharp"></ion-icon>
+              <p>Identify</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding">
+          <ion-card (click)="goToPage('scan')">
+            <ion-card-content>
+              <ion-icon name="qr-code-sharp"></ion-icon>
+              <p>Scan</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
