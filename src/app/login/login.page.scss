@@ -82,6 +82,10 @@ ion-button {
   margin-top: 15px;
 }
 
+ion-button:focus {
+  --background: #711bd4;
+}
+
 ion-icon {
   margin-top: 25px;
   font-size: 20px;

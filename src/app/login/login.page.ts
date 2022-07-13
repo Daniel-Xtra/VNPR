@@ -21,7 +21,7 @@ export class LoginPage {
   }
 
   goToPage(page) {
-    this._helper.createLoader('Logging in');
+    this._helper.createLoader('Logging in...');
     setTimeout(() => {
       this._helper.dismissLoader();
       this.navCtrl.navigateRoot(page);

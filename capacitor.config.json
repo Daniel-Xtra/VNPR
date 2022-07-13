@@ -1,6 +1,6 @@
 {
-  "appId": "com.danielakanbi.vnpri",
-  "appName": "VNPRI",
+  "appId": "com.danielakanbi.vehmon",
+  "appName": "Vehmon",
   "webDir": "www",
   "bundledWebRuntime": false,
   "plugins": {

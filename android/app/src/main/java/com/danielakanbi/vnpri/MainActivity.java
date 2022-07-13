@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.danielakanbi.vnpri;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -80,11 +80,12 @@ export class Helpers {
     return this.modalCtrl.create(data);
   }
 
-  async createLoader(message, cssClass = '') {
+  async createLoader(message) {
     this.registerBackButton = this.handleBackButton();
     const loading = await this.loadingCtrl.create({
       message,
-      cssClass,
+      cssClass: 'loader',
+      spinner: 'bubbles',
     });
     await loading.present();
 

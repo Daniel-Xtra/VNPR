@@ -16,19 +16,16 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <ion-card class="ion-text-left" id="display">
-      <ion-card-content>
-        <p class="ion-padding-top">Howdy</p>
-        <h2 class="ion-padding-top">Daniel Akanbi</h2>
-        <p class="ion-padding-top">Admin</p>
-      </ion-card-content>
-    </ion-card>
+    <!-- <div class="ion-text-left" id="display"> -->
+    <p>Howdy</p>
+    <h2>Daniel Akanbi</h2>
+    <p>Admin</p>
+    <!-- </div> -->
 
-    <h3 class="ion-padding ion-text-left">Quick Links</h3>
-
+    <!--
     <ion-grid>
       <ion-row class="link">
-        <ion-col size="6" class="ion-no-padding">
+        <ion-col size="6">
           <ion-card (click)="goToPage('add-official')">
             <ion-card-content>
               <ion-icon name="person-add-sharp"></ion-icon>
@@ -36,7 +33,7 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-        <ion-col size="6" class="ion-no-padding">
+        <ion-col size="6">
           <ion-card (click)="goToPage('add-vehicle')">
             <ion-card-content>
               <ion-icon name="car-sport-sharp"></ion-icon>
@@ -44,7 +41,7 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-        <ion-col size="6" class="ion-no-padding">
+        <ion-col size="6">
           <ion-card (click)="goToPage('identify')">
             <ion-card-content>
               <ion-icon name="search-sharp"></ion-icon>
@@ -61,6 +58,35 @@
           </ion-card>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
+  </div>
+  <h3 class="ion-padding ion-text-left">Quick Links</h3>
+  <div class="card" mode="md">
+    <ion-row>
+      <ion-col size="6">
+        <div class="deep" (click)="goToPage('add-official')">
+          <ion-icon name="person-add-sharp"></ion-icon>
+          <p>Add Official</p>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="deep" (click)="goToPage('add-vehicle')">
+          <ion-icon name="car-sport-sharp"></ion-icon>
+          <p>Add Vehicle</p>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="deep" (click)="goToPage('identify')">
+          <ion-icon name="search-sharp"></ion-icon>
+          <p>Identify</p>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="deep" (click)="goToPage('scan')">
+          <ion-icon name="qr-code-sharp"></ion-icon>
+          <p>Scan</p>
+        </div>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>
