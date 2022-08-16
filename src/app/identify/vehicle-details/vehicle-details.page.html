@@ -1,10 +1,53 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar
     ><ion-buttons slot="start"
       ><ion-back-button defaultHref="/"></ion-back-button
     ></ion-buttons>
-    <ion-title>Vehicle-details</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="trash-sharp" (click)="del()"></ion-icon>
+      <ion-icon name="alert-circle-sharp"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div class="upper">
+    <h1 class="ion-padding">
+      VEHICLE <br /><br />
+      DETAILS
+    </h1>
+  </div>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <p>name <span>{{details?.name}}</span></p>
+      <p>
+        number plate
+        <span style="text-transform: none">{{details?.plate_number}}</span>
+      </p>
+      <p>color <span>{{details?.color}}</span></p>
 
-<ion-content> </ion-content>
+      <p>owner<span>{{details?.license_bearer_name}}</span></p>
+      <p>phone <span>{{details?.owner?.phone_number}}</span></p>
+
+      <div *ngIf="!seeMore">
+        <p>
+          email
+          <span style="text-transform: none">{{details?.owner?.email}}</span>
+        </p>
+        <p>address<span>{{details?.owner?.address}}</span></p>
+        <p>
+          owner identification
+          <span>{{details?.owner?.owner_identification}}</span>
+        </p>
+        <p>
+          identification number
+          <span>{{details?.owner?.identification_no}}</span>
+        </p>
+        <p>status <span>{{details?.status}}</span></p>
+        <!-- <p>owner<span>{{detail?.owner.license_bearer_name}}</span></p> -->
+      </div>
+      <ion-button (click)="switch()"
+        >{{seeMore ? 'see more' : 'see less'}}</ion-button
+      >
+    </ion-col>
+  </ion-row>
+</ion-content>

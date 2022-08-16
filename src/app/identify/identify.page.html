@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<!-- <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -10,16 +10,48 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <form class="ion-text-center">
-        <!-- <h3 class="ion-text-left">Enter Licensed Number Plate</h3>
-        <ion-input type="text"></ion-input> -->
+      <form class="ion-text-center" [formGroup]="vehForm">
+
         <h3 class="ion-text-left">Enter Licensed Number Plate</h3>
 
         <ion-item lines="none" class="ion-text-center">
-          <ion-input type="text"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="plate_number"
+            required
+          ></ion-input>
         </ion-item>
-        <ion-button>Identify</ion-button>
+        <ion-button (click)="getVehicle()">Identify</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
+</ion-content> -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Identify</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+  <h2>Free Car Check</h2>
+  <p>
+    Enter licensed number plate <br />
+    below for free car check
+  </p>
+
+  <form [formGroup]="vehForm">
+    <ion-item lines="none" class="ion-text-center">
+      <ion-input
+        type="text"
+        formControlName="plate_number"
+        name="plate"
+        #plate
+      ></ion-input>
+      <ion-icon name="search" (click)="getVehicle()" slot="end"></ion-icon>
+    </ion-item>
+  </form>
 </ion-content>

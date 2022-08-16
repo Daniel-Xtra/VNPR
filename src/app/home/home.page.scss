@@ -1,88 +1,95 @@
 ion-header {
-  --ion-background-color: #e1d4e4;
-
+  // --ion-background-color: #e1d4e4;
+  --ion-background-color: #711bd4;
   ion-title {
     color: #ffffffff;
   }
 
   ion-menu-button {
-    --color: #711bd4;
+    // --color: #711bd4;
+    --color: #ffffff;
   }
 }
 ion-content {
-  --ion-background-color: #f2edf2;
+  // --ion-background-color: #f2edf2;
+  --ion-background-color: #ffffff;
 }
 
 #container {
-  text-align: center;
+  margin-top: -40px;
+  padding-top: 60px;
+  padding-left: 30px;
+  height: 270px;
+  background-color: #711bd4;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 6%;
-  height: 250px;
-  background-color: #e1d4e4;
-
-  strong {
+  p {
     font-size: 20px;
-    line-height: 26px;
+    color: #ffffff;
+    font-weight: bolder;
   }
 
-  a {
-    text-decoration: none;
+  h2 {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
+}
 
-  #display {
-    margin-top: 35px;
-    background: #e1d4e4 !important;
-    // background: #f3edf4 !important;
-    z-index: 10;
+// ion-card {
+//   // margin-top: 1px;
+//   height: 170px;
+//   border-radius: 15px;
+//   box-shadow: none;
+//   border: 1px solid #e1d4e4;
 
-    p {
-      font-size: 20px;
-      line-height: 22px;
-      margin: 0;
+//   p {
+//     color: orange;
+//     font-size: 15px;
+//     font-weight: 600;
+//     padding-top: 25px;
+//   }
+// }
+
+div.card {
+  margin-left: 0.9rem;
+  margin-right: 0.9rem;
+
+  .deep {
+    height: 150px;
+    border-radius: 15px;
+    text-align: center;
+    padding-left: 7px;
+    border: 1px solid #e1d4e4;
+
+    ion-icon {
+      height: 50px;
+      width: 50px;
+      padding-top: 30px;
+      color: #711bd4;
+      font-weight: 800;
     }
 
-    h2 {
-      font-size: 20px;
-      font-weight: 800;
+    p {
+      font-size: 15px;
+      font-weight: 600;
+      padding-top: 10px;
       color: #711bd4;
     }
   }
 }
 
-ion-card {
-  margin-top: 15px;
-  height: 170px;
-  border-radius: 5px;
-  box-shadow: none;
-  border: 1px solid #e1d4e4;
-
-  p {
-    color: orange;
-    font-size: 15px;
-    font-weight: 600;
-    padding-top: 25px;
-  }
-}
-
 h3 {
-  padding-top: 43px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
   font-weight: 800;
   color: #711bd4;
 }
 
 ion-text {
   font-size: 20px;
-  font-weight: 800;
-}
-
-ion-icon {
-  height: 70px;
-  width: 70px;
-  color: #711bd4;
   font-weight: 800;
 }
 

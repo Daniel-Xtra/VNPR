@@ -25,7 +25,7 @@ export class HomePage {
       this.lastname = res.last_name;
       this.membership = res.membership_type;
       this.image = res['profile'].profile_picture_url;
-      console.log(this.image);
+      console.log(res);
     });
   }
 

@@ -14,12 +14,16 @@ import { RequestInterceptor } from 'src/interceptors/request-interceptor';
 import { AuthProvider } from 'src/providers/auth/auth';
 import { BaseProvider } from 'src/providers/base/base';
 import { VehicleProvider } from 'src/providers/vehicle/vehicle';
+import { ProfileProvider } from 'src/providers/profile/profile';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { FileTransfer } from '@awesome-cordova-plugins/file-transfer/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
+
     IonicModule.forRoot({
       animated: false,
       scrollPadding: false,
@@ -34,10 +38,14 @@ import { VehicleProvider } from 'src/providers/vehicle/vehicle';
     AppRoutingModule,
   ],
   providers: [
+    Camera,
+    FileTransfer,
     Helpers,
     AuthProvider,
     BaseProvider,
     VehicleProvider,
+    ProfileProvider,
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

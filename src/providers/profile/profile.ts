@@ -8,6 +8,11 @@ export class ProfileProvider {
   private actionUrl = '/profiles';
   constructor(private api: BaseProvider) {}
 
+  getProfile(username: string) {
+    this.api.setActionUrl(this.actionUrl, `/${username}`);
+    return this.api.get();
+  }
+
   updateProfile(input: Profile) {
     this.api.setActionUrl(this.actionUrl);
     return this.api.update(input);
@@ -15,6 +20,7 @@ export class ProfileProvider {
 
   postProfilePhoto(input: { photo: string }) {
     this.api.setActionUrl(this.actionUrl, '/upload');
+    console.log({ input });
     return this.api.post(input);
   }
 }

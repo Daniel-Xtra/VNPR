@@ -1,34 +1,48 @@
 ion-header {
-  --ion-background-color: #f2edf2;
-
+  // --ion-background-color: #f2edf2;
+  --ion-background-color: #711bd4;
   ion-menu-button {
-    --color: #711bd4;
+    --color: #ffffff;
   }
 }
 
 ion-content {
-  --ion-background-color: #f2edf2;
+  --ion-background-color: #ffffff;
 }
 
-ion-card {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 40%;
-  transform: translateY(-50%);
-  height: 200px;
-  --background: #e1d4e4;
+// ion-card {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 40%;
+//   transform: translateY(-50%);
+//   height: 200px;
+//   --background: #711bd4;
 
-  h3 {
-    padding-top: 40px;
-    padding-bottom: 10px;
-    font-weight: 600;
-    font-size: 15px;
-  }
+//   h3 {
+//     padding-top: 40px;
+//     padding-bottom: 10px;
+//     font-weight: 600;
+//     font-size: 15px;
+//     color: #000000;
+//   }
+// }
+h2 {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: #000000;
 }
-
+p {
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 2px;
+}
 ion-item {
   border: 1px solid #711bd4;
+  margin-top: 120px;
 }
 
 ion-title {
@@ -38,7 +52,15 @@ ion-title {
   width: 100%;
   height: 100%;
   text-align: center;
+  color: #ffffff;
 }
+
+ion-icon {
+  // margin-top: 25px;
+  font-size: 20px;
+  color: #711bd4;
+}
+
 ion-button {
   margin: 10px;
   --background: #711bd4;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
 /* eslint-disable @typescript-eslint/quotes */
@@ -15,9 +16,12 @@ import { Helpers } from '../app.helpers';
 })
 export class ScanPage implements AfterViewInit, OnDestroy {
   scanActive: boolean = false;
+  show = true;
   data;
 
-  constructor(private _helper: Helpers) {}
+  constructor(private _helper: Helpers) {
+    this.show;
+  }
 
   ngAfterViewInit() {
     BarcodeScanner.prepare();

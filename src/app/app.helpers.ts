@@ -72,8 +72,10 @@ export class Helpers {
     return this.storage.set(key, value);
   }
 
-  createActionsheet(options: ActionSheetOptions) {
-    return this.actionSheetCtrl.create(options);
+  async createActionsheet(options: ActionSheetOptions) {
+    const sheet = await this.actionSheetCtrl.create(options);
+    await sheet.present();
+    // return this.actionSheetCtrl.create(options);
   }
 
   handleBackButton(customHandler: Function = () => {}) {
@@ -90,11 +92,11 @@ export class Helpers {
     return this.modalCtrl.create(data);
   }
 
-  async createLoader(message, cssClass = '') {
+  async createLoader(message) {
     this.registerBackButton = this.handleBackButton();
     this.loading = await this.loadingCtrl.create({
       message,
-      cssClass,
+      cssClass: 'loader',
     });
     await this.loading.present();
 
@@ -124,9 +126,10 @@ export class Helpers {
   async createAlert(message: string, buttonText: string = 'OK') {
     const alert = await this.alertCtrl.create({
       message,
-
+      cssClass: 'alertCss',
       buttons: [
         {
+          cssClass: 'btnCss',
           text: buttonText,
         },
       ],
@@ -134,25 +137,25 @@ export class Helpers {
     await alert.present();
   }
 
-  async createAlertWithHandlers(
-    message = '',
-    buttons: Array<{ handlerFn: Function; text: string }>
-  ) {
-    const btns = buttons.map((item) => {
-      return {
-        text: item.text,
-        handler: () => item.handlerFn(),
-      };
-    });
+  // async createAlertWithHandlers(
+  //   message = '',
+  //   buttons: Array<{ handlerFn?: Function; text: string; role: string }>
+  // ) {
+  //   const btns = buttons.map((item) => {
+  //     return {
+  //       text: item.text,
+  //       handler: () => item.handlerFn(),
+  //     };
+  //   });
 
-    const alert = await this.alertCtrl.create({
-      message,
+  //   const alert = await this.alertCtrl.create({
+  //     message,
 
-      buttons: btns,
-    });
+  //     buttons: btns,
+  //   });
 
-    await alert.present();
-  }
+  //   await alert.present();
+  // }
 
   // createPromptAlert(
   //   message = '',

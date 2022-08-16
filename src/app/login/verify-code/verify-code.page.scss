@@ -10,6 +10,10 @@ p {
   padding: 10px;
   text-align: center;
   text-transform: capitalize;
+
+  strong {
+    text-transform: none;
+  }
 }
 
 ion-button {
@@ -28,13 +32,13 @@ img {
   // margin-top: 15px;
 }
 ion-header {
-  --ion-background-color: #fefefe;
+  --ion-background-color: #711bd4;
+
+  ion-back-button {
+    --color: #ffffff !important;
+  }
 }
 
 ion-content {
   --ion-background-color: #fefefe;
-}
-
-strong {
-  text-transform: none !important;
 }

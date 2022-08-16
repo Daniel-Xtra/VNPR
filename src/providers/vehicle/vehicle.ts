@@ -18,11 +18,16 @@ export class VehicleProvider {
 
   addVehicle(data: Vehicle) {
     this.api.setActionUrl(this.actionUrl, '/create');
-    return this.api.post<Vehicle>(data);
+    return this.api.post(data);
   }
 
   getVehicle(plate_number: string) {
     this.api.setActionUrl(this.actionUrl, `/${plate_number}`);
     return this.api.get<Vehicle>();
+  }
+
+  delVehicle(plate_number: string) {
+    this.api.setActionUrl(this.actionUrl, `/${plate_number}/delete`);
+    return this.api.delete();
   }
 }

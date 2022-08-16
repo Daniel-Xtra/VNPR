@@ -79,17 +79,18 @@ export class AddVehiclePage {
     this.addVehForm = this.formBuilder.group({
       address: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
-      phone: [
+      phone_number: [
         null,
         [Validators.required, Validators.pattern(new RegExp(/^[0-9]{3,16}$/))],
       ],
+      name: [null, [Validators.required]],
       first_name: [null, [Validators.required]],
       last_name: [null, [Validators.required]],
       gender: [null, [Validators.required]],
       plate_number: [null, [Validators.required]],
       title: [null, [Validators.required]],
       color: [null, [Validators.required]],
-      phone_number: [null, [Validators.required]],
+
       fuel_type: [null, [Validators.required]],
       chassis_no: [null, [Validators.required]],
       engine_capacity: [null, [Validators.required]],
@@ -97,32 +98,22 @@ export class AddVehiclePage {
       owner_identification: [null, [Validators.required]],
       identification_no: [null, [Validators.required]],
       category: [null, [Validators.required]],
+      vehicle_type: [null, [Validators.required]],
       driver_license_no: [null, [Validators.required]],
       license_bearer_name: [null, [Validators.required]],
       state_of_plateNo_allocation: [null, [Validators.required]],
     });
-
-    // this.addVehForm = new FormGroup({
-    //   vehicle: new FormGroup({
-    //     plate_number: new FormControl([null, [Validators.required]]),
-    //     color: new FormControl([null, [Validators.required]]),
-    //     fuel_type: new FormControl([null, [Validators.required]]),
-    //     chassis_number: new FormControl([null, [Validators.required]]),
-    //     engine_capacity: new FormControl([null, [Validators.required]]),
-    //     tank_capacity: new FormControl([null, [Validators.required]]),
-    //     category: new FormControl([null, [Validators.required]]),
-    //     vehicle_type: new FormControl([null, [Validators.required]]),
-    //   }),
-    // });
   }
   vehReg() {
     // let verified: any;
-    this._helpers.createLoader('creating account..');
+
     if (this.addVehForm.value) {
+      this._helpers.createLoader('please wait..');
       const reg_obj: Vehicle = {
         email: this.addVehForm.value.email,
-        phone_number: '0' + this.addVehForm.value.phone,
+        phone_number: this.addVehForm.value.phone_number,
         gender: this.addVehForm.value.gender,
+        name: this.addVehForm.value.name,
         first_name: this.addVehForm.value.first_name,
         last_name: this.addVehForm.value.last_name,
         plate_number: this.addVehForm.value.plate_number,
@@ -143,10 +134,12 @@ export class AddVehiclePage {
         address: this.addVehForm.value.address,
       };
 
+      console.log(reg_obj);
       this.vech.addVehicle(reg_obj).subscribe(
         async (res) => {
           await this._helpers.dismissLoader();
           this.addVehForm.reset();
+          console.log(res);
           this._helpers.showToast('Vehicle Added!');
         },
         (err) => {
@@ -156,7 +149,7 @@ export class AddVehiclePage {
           //     ? 'Could not register now. Please try again..'
           //     : err.message
           // );
-          // console.log(err);
+          console.log('error is', err);
         }
       );
     } else {

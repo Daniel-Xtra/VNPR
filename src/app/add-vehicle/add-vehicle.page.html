@@ -29,6 +29,16 @@
           <ion-row>
             <ion-col size="12">
               <ion-item>
+                <ion-label position="stacked">name</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="name"
+                  required
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
                 <ion-label position="stacked">vehicle category</ion-label>
                 <ion-select
                   interface="action-sheet"
@@ -80,6 +90,25 @@
             </ion-col>
             <ion-col size="12">
               <ion-item>
+                <ion-label position="stacked">vehicle type</ion-label>
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="vehicle_type"
+                  required
+                >
+                  <ion-select-option value="bus">Bus</ion-select-option>
+                  <ion-select-option value="motorcycle"
+                    >Motorcycle</ion-select-option
+                  >
+                  <ion-select-option value="tricycle"
+                    >Tricycle</ion-select-option
+                  >
+                  <ion-select-option value="car">Car</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
                 <ion-label position="stacked">chassis number</ion-label>
                 <ion-input
                   type="text"
@@ -102,8 +131,8 @@
                   <ion-select-option value="below 1.6"
                     >Below 1.6</ion-select-option
                   >
-                  <ion-select-option value="between 1.6 and 2.6"
-                    >Between 1.6 and 2.6</ion-select-option
+                  <ion-select-option value="between 1.6 and 2.0"
+                    >Between 1.6 and 2.0</ion-select-option
                   >
                   <ion-select-option value="between 2.1 and 3.0"
                     >Between 2.1 and 3.0</ion-select-option
@@ -190,6 +219,19 @@
             </ion-col>
             <ion-col size="12">
               <ion-item>
+                <ion-label position="stacked">gender</ion-label>
+                <ion-select
+                  interface="action-sheet"
+                  formControlName="gender"
+                  required
+                >
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
                 <ion-label position="stacked">identification number</ion-label>
                 <ion-input
                   type="text"
@@ -222,7 +264,7 @@
               <ion-item>
                 <ion-label position="stacked">mobile number</ion-label>
                 <ion-input
-                  type="text"
+                  type="tel"
                   formControlName="phone_number"
                   required
                 ></ion-input>

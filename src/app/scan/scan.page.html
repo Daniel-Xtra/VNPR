@@ -11,8 +11,11 @@
   [fullscreen]="true"
   [style.--background]="scanActive?'#00000000':'#ffffff'"
 >
+  <div class="scan" [hidden]="!show || scanActive || data">
+    <img src="assets/imgs/qr-code.jfif" />
+  </div>
   <ion-button
-    class="ion-padding"
+    class="ion-padding scan-button"
     expand="full"
     (click)="startScanner()"
     [hidden]="scanActive"
@@ -20,7 +23,7 @@
     SCAN
   </ion-button>
   <p class="ion-text-center" *ngIf="data && !scanActive">{{data}}</p>
-  <ion-row class="scan-button ion-text-center" [hidden]="!scanActive">
+  <ion-row class="stop-button ion-text-center" [hidden]="!scanActive">
     <ion-col class="ion-no-padding">
       <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
     </ion-col>

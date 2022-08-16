@@ -63,7 +63,7 @@ export class LoginPage {
       console.log('no values supplied');
       this._helpers.showToast('No values supplied...');
     } else {
-      this._helpers.createLoader('Logging in. Please wait...');
+      this._helpers.createLoader('Logging in...');
 
       this._auth.adminSignin(this.loginCredentials).subscribe(
         (res) => {

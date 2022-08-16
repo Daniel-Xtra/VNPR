@@ -47,6 +47,7 @@ export class RequestInterceptor implements HttpInterceptor {
       catchError((err) => {
         if (err.error.isTrusted) {
           console.error('An error occurred:', err.error);
+          this._helpers.dismissLoader();
           this._helpers.createAlert(
             'Please check your network settings and try again.',
             'You seem to be offline!'
@@ -86,12 +87,15 @@ export class RequestInterceptor implements HttpInterceptor {
             }
           } else if (err.error.message) {
             if (err.error.message == 'Request timed out') {
+              this._helpers.dismissLoader();
               this._helpers.showErrorToast(err.error.message);
             }
             if (err.error.statusCode == 404) {
+              this._helpers.dismissLoader();
               this._helpers.showErrorToast('Please update your user biodata');
             }
             if (req.method !== 'GET') {
+              this._helpers.dismissLoader();
               this._helpers.showErrorToast(err.error.message);
             }
           }
@@ -120,13 +124,6 @@ export class RequestInterceptor implements HttpInterceptor {
   }
 
   async logout() {
-    const banks = await this._helpers.get(StorageKey.banks);
-    const onboardingDone = await this._helpers.get(StorageKey.onboardingDone);
-    const subscriptions = await this._helpers.get(StorageKey.subscriptions);
-    this._helpers.clearDb().then(() => {
-      this._helpers.store(StorageKey.onboardingDone, onboardingDone);
-      this._helpers.store(StorageKey.banks, banks);
-      this._helpers.store(StorageKey.subscriptions, subscriptions);
-    });
+    this._helpers.clearDb();
   }
 }

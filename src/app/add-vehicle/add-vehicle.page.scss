@@ -1,13 +1,14 @@
 ion-header {
-  --ion-background-color: #f2edf2;
+  // --ion-background-color: #f2edf2;
+  --ion-background-color: #711bd4;
 
   ion-menu-button {
-    --color: #711bd4;
+    --color: #ffffff;
   }
 }
 
 ion-content {
-  --ion-background-color: #f2edf2;
+  --ion-background-color: #ffffff;
 }
 
 ion-title {
@@ -17,18 +18,20 @@ ion-title {
   width: 100%;
   height: 100%;
   text-align: center;
+  color: #ffffff;
 }
 
 .upper {
-  background-color: #f2edf2;
+  background-color: #711bd4;
   height: 180px;
   padding-top: 10px;
 
   h1 {
-    border-left: 5px solid brown;
+    border-left: 5px solid #ffffff;
     margin-left: 20px;
     font-size: 25px;
     font-weight: bold;
+    color: #ffffff;
   }
 }
 

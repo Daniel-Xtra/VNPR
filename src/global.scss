@@ -38,3 +38,25 @@
   --end: -2px;
   top: 9px;
 }
+
+.loader {
+  --spinner-color: #711bd4;
+}
+
+.alertCss {
+  .alert-wrapper {
+    .alert-head {
+      h2 {
+        font-size: 12px;
+      }
+    }
+  }
+  button.btnCss {
+    color: #711bd4;
+  }
+}
+
+.camera,
+.gallery {
+  --color: #711bd4;
+}

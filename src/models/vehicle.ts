@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 export interface Vehicle {
+  name: string;
   plate_number: string;
   color: string;
   fuel_type: 'petrol' | 'diesel';

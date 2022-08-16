@@ -27,6 +27,7 @@
 .menu-item {
   margin: 0px;
   ion-label {
+    // color: #711bd4;
     color: #711bd4;
   }
 
@@ -42,5 +43,6 @@
 }
 
 ion-content {
-  --ion-background-color: #f2edf2;
+  // --ion-background-color: #f2edf2;
+  --ion-background-color: #ffffff !important;
 }

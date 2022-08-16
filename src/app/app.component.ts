@@ -13,6 +13,7 @@ import { StorageKey } from './app.enums';
 import { Helpers } from './app.helpers';
 import { AuthProvider } from 'src/providers/auth/auth';
 import { Router } from '@angular/router';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,7 @@ export class AppComponent {
     private navCtrl: NavController,
     private platform: Platform,
     private _helpers: Helpers,
-    private auth: AuthProvider,
-    private router: Router
+    private auth: AuthProvider
   ) {
     this.platform.ready().then(() => {
       this.initializeApp();
@@ -50,10 +50,14 @@ export class AppComponent {
     // }
   }
 
-  private initializeApp(): void {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 2000);
+  initializeApp() {
+    this.platform.ready().then(() => {
+      setTimeout(() => {
+        SplashScreen.hide().then(() => {
+          StatusBar.setBackgroundColor({ color: '#711bd4' });
+        });
+      }, 2000);
+    });
   }
 
   async logout() {

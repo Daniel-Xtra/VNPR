@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">VNPRI</string>
-    <string name="title_activity_main">VNPRI</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">Vehmon</string>
+    <string name="title_activity_main">Vehmon</string>
+    <string name="package_name">com.danielakanbi.vnpri</string>
+    <string name="custom_url_scheme">com.danielakanbi.vnpri</string>
 </resources>

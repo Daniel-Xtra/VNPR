@@ -69,8 +69,11 @@ form {
   margin-top: 23px;
   ion-item {
     margin-top: 10px;
-    --ion-background-color: #e1d4e4;
+    // --ion-background-color: #e1d4e4;
+
+    --ion-background-color: #f8f7ff !important;
     --border-radius: 5px;
+    // border: 1px solid #711bd4;
   }
 }
 ion-button {
@@ -80,6 +83,10 @@ ion-button {
   --background: #711bd4;
   font-size: 15px;
   margin-top: 15px;
+}
+
+ion-button:focus {
+  --background: #711bd4;
 }
 
 ion-icon {
@@ -95,7 +102,8 @@ div ion-icon {
   color: #711bd4;
 }
 ion-content {
-  --ion-background-color: #f2edf2;
+  // --ion-background-color: #f2edf2;
+  --ion-background-color: #ffffff !important;
 }
 
 .bottom {

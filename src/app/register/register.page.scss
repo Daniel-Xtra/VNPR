@@ -9,8 +9,8 @@
 }
 
 ion-item {
-  // --ion-background-color: #e1d4e463;
-  border: 1px solid #cbccd0;
+  --ion-background-color: #f8f7ff !important;
+  // border: 1px solid #711bd4;
 }
 ion-button {
   margin: 6px;
@@ -20,10 +20,12 @@ ion-icon {
   font-weight: bold;
   font-size: 20px;
   margin-top: 25px;
+  color: #711bd4;
 }
 
 ion-content {
-  --ion-background-color: #f2edf2;
+  // --ion-background-color: #f2edf2;
+  --ion-background-color: #ffffff !important;
 }
 
 ion-checkbox {

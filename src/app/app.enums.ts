@@ -8,24 +8,11 @@
  */
 export enum StorageKey {
   accessToken = 'accessToken',
-  all_review = 'all_review',
   authPayload = 'authPayload',
-  banks = 'banks',
-  chatList = 'chatList',
-  chats = 'chats',
-  communityPosts = 'CommunityPosts',
-  diaries = 'diaries',
-  doctors = 'doctors',
-  notifications = 'notifications',
-  notificationSettings = 'notificationSettings',
-  onboardingDone = 'onboardingDone',
-  practice = 'practice',
+
   profile = 'profile',
-  recentSearch = 'recentSearch',
   refreshToken = 'refreshToken',
-  reportCategories = 'reportCategories',
-  states = 'states',
-  subscriptions = 'subscriptions',
+
   user = 'user',
   userbiodata = 'userbiodata',
   user_id = 'user_id',
@@ -33,6 +20,7 @@ export enum StorageKey {
   user_obj = 'user_obj',
   verify_mail = 'verify_mail',
   code = 'code',
+  car = 'car',
 }
 
 /**
