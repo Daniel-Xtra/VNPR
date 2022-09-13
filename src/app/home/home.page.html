@@ -6,7 +6,7 @@
 
     <img
       slot="end"
-      src="{{image}}"
+      [src]="profile_image"
       class="avatar"
       onError="this.src='assets/avatar.png';"
       (click)="goToPage('profile')"

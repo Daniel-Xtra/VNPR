@@ -86,6 +86,24 @@ const routes: Routes = [
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
   },
+  {
+    path: 'report',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./report/report.module').then((m) => m.ReportPageModule),
+      },
+      {
+        path: 'make-report',
+        loadChildren: () =>
+          import('./report/make-report/make-report.module').then(
+            (m) => m.MakeReportPageModule
+          ),
+      },
+    ],
+  },
+
   // {
   //   path: '',
   //   redirectTo: 'login',

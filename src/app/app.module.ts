@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy, NavParams } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { VehicleProvider } from 'src/providers/vehicle/vehicle';
 import { ProfileProvider } from 'src/providers/profile/profile';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { FileTransfer } from '@awesome-cordova-plugins/file-transfer/ngx';
+import { ReportProvider } from 'src/providers/report/report';
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,10 +42,12 @@ import { FileTransfer } from '@awesome-cordova-plugins/file-transfer/ngx';
     Camera,
     FileTransfer,
     Helpers,
+    NavParams,
     AuthProvider,
     BaseProvider,
     VehicleProvider,
     ProfileProvider,
+    ReportProvider,
 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },

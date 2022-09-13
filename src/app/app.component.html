@@ -48,6 +48,16 @@
         <ion-menu-toggle>
           <ion-item
             lines="none"
+            routerLink="report"
+            [routerLinkActive]="['active']"
+          >
+            <ion-icon name="alert-circle-sharp" slot="start"></ion-icon>
+            <ion-label>Report</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
             routerLink="scan"
             [routerLinkActive]="['active']"
           >

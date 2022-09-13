@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    ><ion-buttons slot="start"
+      ><ion-back-button defaultHref="/"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center ion-text-capitalize">
+    <img src="assets/imgs/report.jpg" class="auth-image" />
+  </div>
+  <form [formGroup]="reportForm" (ngSubmit)="report()">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Number Plate</ion-label>
+          <ion-input type="text" formControlName="plate_number"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Offence</ion-label>
+          <ion-select interface="action-sheet" formControlName="reason">
+            <ion-select-option *ngFor="let offence of offences"
+              >{{offence}}</ion-select-option
+            >
+
+            >
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+      <ion-col class="ion-text-center">
+        <ion-button type="submit">REPORT</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

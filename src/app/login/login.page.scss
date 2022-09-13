@@ -49,6 +49,12 @@
 //   font-size: 20px;
 // }
 
+.auth-image {
+  width: 85%;
+
+  object-fit: contain;
+}
+
 h2 {
   font-size: 25px;
   font-weight: 600;

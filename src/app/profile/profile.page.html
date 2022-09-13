@@ -13,7 +13,7 @@
   <div>
     <img
       slot="end"
-      src="{{details?.profile_picture_url}}"
+      [src]="profile_image"
       class="avatar"
       onError="this.src='assets/avatar.png';"
     />

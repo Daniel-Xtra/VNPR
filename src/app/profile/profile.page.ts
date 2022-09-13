@@ -22,6 +22,8 @@ import {
   FileUploadOptions,
   FileTransferObject,
 } from '@awesome-cordova-plugins/file-transfer/ngx';
+import { Profile, User } from 'src/models/user';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -31,24 +33,30 @@ import {
 export class ProfilePage {
   details;
   userdetails;
+  profile_image: string;
   constructor(
     private _helpers: Helpers,
     private profile: ProfileProvider,
     private http: HttpClient,
     private camera: Camera,
-    private transfer: FileTransfer
+    private transfer: FileTransfer,
+    private navParams: NavParams
   ) {
     this.getProfile();
   }
 
   async getProfile() {
-    this._helpers.get(StorageKey.user_name).then((username) => {
-      this.profile.getProfile(username).subscribe((res: any) => {
-        this.details = res.data;
+    const user: User = await this._helpers.getUser();
 
-        console.log(res);
-      });
-    });
+    const profile: Profile = user.profile;
+    this.profile_image = user.profile.profile_picture_url;
+
+    // this._helpers.get(StorageKey.user_name).then((username) => {
+    //   this.profile.getProfile(username).subscribe((res: any) => {
+    //     this.details = res.data;
+    //     console.log(res);
+    //   });
+    // });
   }
 
   came() {
@@ -115,12 +123,16 @@ export class ProfilePage {
       };
 
       const res = await fileTransfer.upload(imageUrl, baseUrl, options);
-      if (res) {
-        this._helpers.showToast('Profile image updated!');
-        this._helpers.dismissLoader();
-      } else {
-        console.log('error');
-      }
+      const updatedProfile: Profile = JSON.parse(res.response).data;
+      const user = await this._helpers.getUser();
+      // const updateProfilePage = this.navParams.get('updateProfilePage');
+      user.profile = updatedProfile;
+      this.profile_image = updatedProfile.profile_picture_url;
+      await this._helpers.store(StorageKey.user, user);
+      // updateProfilePage();
+
+      this._helpers.showToast('Profile image updated!');
+      this._helpers.dismissLoader();
     } catch (error) {
       this._helpers.dismissLoader();
       this._helpers.showErrorToast('Failed to update profile image!');

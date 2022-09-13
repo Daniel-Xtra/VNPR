@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Make Report</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon (click)="goToPage()" name="add-sharp"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="length > 0">
+    <ion-card *ngFor="let report of reports">
+      <ion-card-header>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-avatar slot="start">
+            <img src="{{report?.reporter.profile.profile_picture_url}}" />
+          </ion-avatar>
+          <div slot="start">
+            <h4>{{report?.reporter?.username}}</h4>
+          </div>
+          <ion-label slot="end" style="padding-top: 10px"
+            >{{ report?.created_at | date }}</ion-label
+          >
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="ion-no-padding">
+          <h3>{{report.reason}}</h3>
+        </ion-item>
+        <ion-button
+          class="btn btn-primary"
+          (click)="resolve(report.unique_id)"
+          style="float: right"
+          >{{report.status}}</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div *ngIf="length === 0" class="text-center">
+    <ion-row>
+      <ion-col>
+        <img src="assets/imgs/no-data-found.png" />
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

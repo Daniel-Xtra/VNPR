@@ -24,6 +24,7 @@ import { StorageKey } from './app.enums';
 // import { AlertInputOptions } from 'ionic-angular/umd/components/alert/alert-options';
 // import { User } from '../models/user';
 import { EventsType } from './app.enums';
+import { User } from 'src/models/user';
 
 @Injectable()
 export class Helpers {
@@ -56,9 +57,9 @@ export class Helpers {
   removeFromDB(key: StorageKey) {
     return this.storage.remove(key);
   }
-  // getUser(): Promise<User> {
-  //   return this.storage.get(StorageKey.user);
-  // }
+  getUser(): Promise<User> {
+    return this.storage.get(StorageKey.user);
+  }
 
   get<T = any>(key: any): Promise<T> {
     return this.storage.get(key);

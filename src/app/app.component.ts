@@ -33,6 +33,23 @@ export class AppComponent {
     });
   }
 
+  public appPages = [
+    { title: 'Home', url: 'home', icon: 'home' },
+    { title: 'About', url: '/about', icon: 'people' },
+    { title: 'Contact', url: '/contact', icon: 'call' },
+    { title: 'Gallery', url: '/gallery', icon: 'images' },
+    {
+      title: 'Setting',
+
+      icon: 'settings',
+      children: [
+        { title: 'sub-menu1', url: '/sub-menu1', icon: 'person' },
+        { title: 'sub-menu2', url: '/sub-menu2', icon: 'person' },
+        { title: 'sub-menu3', url: '/sub-menu3', icon: 'pulse' },
+      ],
+    },
+  ];
+
   async setRootPage() {
     let isLoggedIn = await this._helpers.get('user_id');
 

@@ -13,8 +13,6 @@ export interface User {
   created_at: string;
   updated_at: string;
   deleted_at: null;
-  isOnline?: boolean;
-  sessionStatus?: string;
 
   profile: Profile;
 }
