@@ -6,5 +6,5 @@
 // export const socket_server = "http://localhost:3000/";
 
 // export let base_url = 'http://localhost:5000/api/v1';
-export let img_base_url = '';
-export const socket_server = '';
+// export let img_base_url = '';
+// export const socket_server = '';

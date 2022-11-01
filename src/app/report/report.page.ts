@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+
 import { ReportProvider } from 'src/providers/report/report';
 import { Helpers } from '../app.helpers';
 
@@ -16,40 +17,44 @@ export class ReportPage implements OnInit {
   reports;
   profile;
   length;
+  user: any;
 
   constructor(
     private reportP: ReportProvider,
     private _helpers: Helpers,
-
     private navCtrl: NavController
-  ) {}
+  ) {
+    this.get();
+    this.getUserDetails();
+  }
 
   ngOnInit() {
     this.getReports();
-    this.get();
+  }
+  async ionViewWillEnter() {
+    await this.get();
   }
 
   getReports() {
     this.reportP.allReport().subscribe(
-      (res) => {
+      (res: any) => {
         // this._helpers.showToast('Fetched All');
         console.log(res);
         this.length = res.data.length;
         this._helpers.store('reports', res.data);
-        this.get();
-        // this.reports = res.data;
+        // this.get();
+        this.reports = res.data;
       },
       (err) => {
-        this._helpers.showErrorToast(err);
+        // this._helpers.showErrorToast(err);
       }
     );
   }
 
-  get() {
-    this._helpers.get('reports').then((res) => {
-      console.log(res);
-      this.reports = res;
-    });
+  async get() {
+    const report = await this._helpers.get('reports');
+    this.length = report.length;
+    this.reports = report;
   }
   resolve(uniqueId) {
     this.reportP.resolveReport(uniqueId).subscribe(
@@ -64,5 +69,9 @@ export class ReportPage implements OnInit {
   }
   goToPage() {
     this.navCtrl.navigateForward('report/make-report');
+  }
+
+  async getUserDetails() {
+    this.user = await this._helpers.getUser();
   }
 }

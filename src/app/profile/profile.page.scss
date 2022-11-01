@@ -70,3 +70,10 @@ p {
   transform: rotate(-8deg);
   position: relative;
 }
+
+ion-button {
+  --border-radius: 5px;
+  --background: #711bd4;
+  margin-top: 30px;
+  height: 45px;
+}

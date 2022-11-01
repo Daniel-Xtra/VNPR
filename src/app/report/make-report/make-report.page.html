@@ -8,7 +8,12 @@
 
 <ion-content class="ion-padding">
   <div class="ion-text-center ion-text-capitalize">
-    <img src="assets/imgs/report.jpg" class="auth-image" />
+    <!-- <img src="assets/imgs/report.jpg" class="auth-image" /> -->
+    <h2>REPORT</h2>
+    <p>
+      Enter licensed number plate <br />
+      below to make a report
+    </p>
   </div>
   <form [formGroup]="reportForm" (ngSubmit)="report()">
     <ion-row>
@@ -33,7 +38,9 @@
       </ion-col>
 
       <ion-col class="ion-text-center">
-        <ion-button type="submit">REPORT</ion-button>
+        <ion-button type="submit" [disabled]="!reportForm.valid"
+          >REPORT</ion-button
+        >
       </ion-col>
     </ion-row>
   </form>

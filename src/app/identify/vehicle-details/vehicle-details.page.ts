@@ -18,9 +18,8 @@ import { VehicleProvider } from 'src/providers/vehicle/vehicle';
 export class VehicleDetailsPage {
   details;
   plate;
-
   seeMore = true;
-
+  user: any;
   constructor(
     private _helpers: Helpers,
     private vehicle: VehicleProvider,
@@ -28,6 +27,7 @@ export class VehicleDetailsPage {
     private navCtrl: NavController
   ) {
     this.getData();
+    this.getUserDetails();
   }
 
   getData() {
@@ -72,5 +72,9 @@ export class VehicleDetailsPage {
 
   switch() {
     this.seeMore = !this.seeMore;
+  }
+
+  async getUserDetails() {
+    this.user = await this._helpers.getUser();
   }
 }

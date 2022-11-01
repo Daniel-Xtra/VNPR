@@ -1,8 +1,9 @@
+<!-- eslint-disable @angular-eslint/template/eqeqeq -->
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+    <ion-buttons slot="start"
+      ><ion-back-button defaultHref="/"></ion-back-button
+    ></ion-buttons>
     <ion-title>Make Report</ion-title>
     <ion-buttons slot="end">
       <ion-icon (click)="goToPage()" name="add-sharp"></ion-icon>
@@ -12,12 +13,16 @@
 
 <ion-content class="ion-padding">
   <div *ngIf="length > 0">
-    <ion-card *ngFor="let report of reports">
+    <ion-card class="card" *ngFor="let report of reports">
       <ion-card-header>
         <ion-item lines="none" class="ion-no-padding">
-          <ion-avatar slot="start">
-            <img src="{{report?.reporter.profile.profile_picture_url}}" />
-          </ion-avatar>
+          <img
+            class="avatar"
+            slot="start"
+            [src]="report?.reporter?.profile?.profile_picture_url"
+            onError="this.src='assets/avatar.png';"
+          />
+          <!-- </ion-avatar> -->
           <div slot="start">
             <h4>{{report?.reporter?.username}}</h4>
           </div>
@@ -27,19 +32,21 @@
         </ion-item>
       </ion-card-header>
       <ion-card-content>
+        <h3>{{report?.vehicle?.plate_number}}</h3>
         <ion-item class="ion-no-padding">
           <h3>{{report.reason}}</h3>
         </ion-item>
         <ion-button
-          class="btn btn-primary"
+          class="btn"
           (click)="resolve(report.unique_id)"
           style="float: right"
+          [disabled]="user?.membership_type === 'user'"
           >{{report.status}}</ion-button
         >
       </ion-card-content>
     </ion-card>
   </div>
-  <div *ngIf="length === 0" class="text-center">
+  <div *ngIf="length === 0" class="text-center not-found">
     <ion-row>
       <ion-col>
         <img src="assets/imgs/no-data-found.png" />

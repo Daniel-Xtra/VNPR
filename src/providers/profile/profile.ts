@@ -20,7 +20,7 @@ export class ProfileProvider {
 
   postProfilePhoto(input: { photo: string }) {
     this.api.setActionUrl(this.actionUrl, '/upload');
-    console.log({ input });
+    console.log('inputer=', { input });
     return this.api.post(input);
   }
 }

@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" contentId="main">
+  <!-- <ion-menu side="start" contentId="main">
     <ion-content>
       <div class="menu-header-bg">
         <div class="header-content"></div>
@@ -15,7 +15,7 @@
             <ion-label>Home</ion-label>
           </ion-item>
         </ion-menu-toggle>
-        <ion-menu-toggle>
+        <ion-menu-toggle *ngIf="admin">
           <ion-item
             lines="none"
             routerLink="add-official"
@@ -25,7 +25,7 @@
             <ion-label>Add Official</ion-label>
           </ion-item>
         </ion-menu-toggle>
-        <ion-menu-toggle>
+        <ion-menu-toggle *ngIf="admin">
           <ion-item
             lines="none"
             routerLink="add-vehicle"
@@ -73,6 +73,6 @@
         </ion-menu-toggle>
       </ion-list>
     </ion-content>
-  </ion-menu>
-  <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-menu> -->
+  <ion-router-outlet></ion-router-outlet>
 </ion-app>

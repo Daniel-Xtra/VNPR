@@ -80,6 +80,13 @@ form {
     --ion-background-color: #f8f7ff !important;
     --border-radius: 5px;
     // border: 1px solid #711bd4;
+
+    ion-label {
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: 18px;
+      padding-bottom: 10px;
+    }
   }
 }
 ion-button {

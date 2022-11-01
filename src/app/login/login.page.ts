@@ -23,6 +23,7 @@ export class LoginPage {
   loginfailed: boolean;
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
+  window: Window;
 
   constructor(
     private navCtrl: NavController,
@@ -65,7 +66,7 @@ export class LoginPage {
     } else {
       this._helpers.createLoader('Logging in...');
 
-      this._auth.adminSignin(this.loginCredentials).subscribe(
+      this._auth.signin(this.loginCredentials).subscribe(
         (res) => {
           this.authSuccess(
             res.data.token,

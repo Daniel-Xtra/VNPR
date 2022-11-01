@@ -3,9 +3,8 @@
     ><ion-buttons slot="start"
       ><ion-back-button defaultHref="/"></ion-back-button
     ></ion-buttons>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" *ngIf="user?.membership_type=== 'admin'">
       <ion-icon name="trash-sharp" (click)="del()"></ion-icon>
-      <ion-icon name="alert-circle-sharp"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

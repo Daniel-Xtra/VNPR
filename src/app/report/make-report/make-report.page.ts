@@ -43,10 +43,12 @@ export class MakeReportPage implements OnInit {
       .addReport(this.reportForm.value.plate_number, this.reportForm.value)
       .subscribe(
         (res) => {
+          this.reportForm.reset();
           this._helpers.showToast('Successful');
+          this.getReports();
         },
         (err) => {
-          this._helpers.showErrorToast(err);
+          this._helpers.showErrorToast(err.message);
         }
       );
   }

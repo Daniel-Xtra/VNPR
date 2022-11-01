@@ -90,6 +90,7 @@ export class RequestInterceptor implements HttpInterceptor {
               this._helpers.dismissLoader();
               this._helpers.showErrorToast(err.error.message);
             }
+
             if (err.error.statusCode == 404) {
               this._helpers.dismissLoader();
               this._helpers.showErrorToast('Please update your user biodata');
@@ -101,7 +102,7 @@ export class RequestInterceptor implements HttpInterceptor {
           }
         }
 
-        return throwError(err.error);
+        return throwError({ ...err.error });
       })
     );
   }

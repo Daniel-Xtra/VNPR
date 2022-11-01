@@ -21,6 +21,7 @@ export enum StorageKey {
   verify_mail = 'verify_mail',
   code = 'code',
   car = 'car',
+  reports = 'reports',
 }
 
 /**

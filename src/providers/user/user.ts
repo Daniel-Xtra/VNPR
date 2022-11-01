@@ -15,15 +15,6 @@ export class UserProvider {
     return this.api.get<User>();
   }
 
-  getPostComments(postSlug: string, com_next = '', per_page = 10) {
-    let query = `next=${com_next}`;
-    this.api.setActionUrl(
-      this.actionUrl,
-      `/${postSlug}?per_page=${per_page}&${query}`
-    );
-    return this.api.get<Comment[]>();
-  }
-
   updateUserDetails(user: User) {
     this.api.setActionUrl(this.actionUrl);
     return this.api.update<User>(user);

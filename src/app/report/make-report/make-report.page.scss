@@ -10,6 +10,14 @@ form {
   margin-top: 2rem;
 }
 
+ion-item {
+  ion-label {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 18px;
+  }
+}
+
 ion-content {
   --ion-background-color: #ffffff !important;
 }
@@ -28,4 +36,19 @@ ion-button {
   margin: 30px -50px;
 
   --background: #711bd4;
+}
+
+h2 {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: #000000;
+}
+p {
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 2px;
+  padding-bottom: 20px;
 }

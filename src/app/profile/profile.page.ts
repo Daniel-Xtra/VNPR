@@ -23,7 +23,8 @@ import {
   FileTransferObject,
 } from '@awesome-cordova-plugins/file-transfer/ngx';
 import { Profile, User } from 'src/models/user';
-import { NavParams } from '@ionic/angular';
+import { NavController, NavParams } from '@ionic/angular';
+import { AuthProvider } from 'src/providers/auth/auth';
 
 @Component({
   selector: 'app-profile',
@@ -40,6 +41,8 @@ export class ProfilePage {
     private http: HttpClient,
     private camera: Camera,
     private transfer: FileTransfer,
+    private auth: AuthProvider,
+    private navCtrl: NavController,
     private navParams: NavParams
   ) {
     this.getProfile();
@@ -223,4 +226,22 @@ export class ProfilePage {
   //     };
   //     reader.readAsDataURL(blob);
   //   });
+
+  async logout() {
+    this.auth.logout().subscribe(
+      (res) => {
+        console.log('Logout successful', res.data);
+        this._helpers.clearDb();
+        this.goToPage('/login');
+        console.log(this._helpers.get(StorageKey.user));
+      },
+      (error) => {
+        console.error('Logout error', error);
+      }
+    );
+  }
+
+  goToPage(page) {
+    this.navCtrl.navigateRoot(page);
+  }
 }

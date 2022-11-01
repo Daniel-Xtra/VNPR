@@ -2,7 +2,7 @@ ion-header {
   // --ion-background-color: #f2edf2;
   --ion-background-color: #711bd4;
 
-  ion-menu-button {
+  ion-back-button {
     --color: #ffffff;
   }
 }
@@ -30,7 +30,7 @@ ion-title {
     border-left: 5px solid #ffffff;
     margin-left: 20px;
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 700;
     color: #ffffff;
   }
 }
@@ -62,6 +62,9 @@ ion-title {
 
     ion-label {
       text-transform: capitalize;
+      font-weight: 500;
+      font-size: 18px;
+      padding-bottom: 10px;
     }
   }
 
@@ -71,10 +74,13 @@ ion-title {
 
   ion-col[size="10"] {
     background: #f8f7ff;
-    padding-left: 10px;
-    color: #711bd4;
-    font-weight: bold;
-    text-transform: uppercase;
+    h3 {
+      padding-left: 10px;
+      color: #711bd4;
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
   }
 
   ion-button {
@@ -84,7 +90,7 @@ ion-title {
     font-size: 15px;
     margin: 30px -50px;
     position: relative;
-
+    font-weight: 600;
     top: 50%;
     left: 50%;
   }

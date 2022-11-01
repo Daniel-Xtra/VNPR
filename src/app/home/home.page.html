@@ -1,9 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
+    <!-- <ion-title slot="start">vehmon</ion-title> -->
+    <h2>vehmon</h2>
     <img
       slot="end"
       [src]="profile_image"
@@ -77,12 +75,18 @@
   <div class="card" mode="md">
     <ion-row>
       <ion-col size="6">
+        <div class="deep" (click)="goToPage('home')">
+          <ion-icon name="home-sharp"></ion-icon>
+          <p>Home</p>
+        </div>
+      </ion-col>
+      <ion-col size="6" *ngIf="user?.membership_type=== 'admin'">
         <div class="deep" (click)="goToPage('add-official')">
           <ion-icon name="person-add-sharp"></ion-icon>
           <p>Add Official</p>
         </div>
       </ion-col>
-      <ion-col size="6">
+      <ion-col size="6" *ngIf="user?.membership_type=== 'admin'">
         <div class="deep" (click)="goToPage('add-vehicle')">
           <ion-icon name="car-sport-sharp"></ion-icon>
           <p>Add Vehicle</p>
@@ -92,6 +96,12 @@
         <div class="deep" (click)="goToPage('identify')">
           <ion-icon name="search-sharp"></ion-icon>
           <p>Identify</p>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="deep" (click)="goToPage('report')">
+          <ion-icon name="alert-circle-sharp"></ion-icon>
+          <p>Report</p>
         </div>
       </ion-col>
       <ion-col size="6">

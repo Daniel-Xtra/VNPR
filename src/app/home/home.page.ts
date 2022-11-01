@@ -18,8 +18,10 @@ export class HomePage {
   lastname;
   membership;
   profile_image: string;
+  user: User;
   constructor(private navCtrl: NavController, private _helpers: Helpers) {
     this.getProfile();
+    this.getUserDetails();
   }
 
   // getImage() {
@@ -54,5 +56,9 @@ export class HomePage {
 
   goToPage(page) {
     this.navCtrl.navigateForward(page);
+  }
+
+  async getUserDetails() {
+    this.user = await this._helpers.getUser();
   }
 }

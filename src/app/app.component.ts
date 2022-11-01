@@ -14,6 +14,7 @@ import { Helpers } from './app.helpers';
 import { AuthProvider } from 'src/providers/auth/auth';
 import { Router } from '@angular/router';
 import { StatusBar, Style } from '@capacitor/status-bar';
+import { User } from 'src/models/user';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,12 @@ import { StatusBar, Style } from '@capacitor/status-bar';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  user;
+  users: User;
+  admin;
+  window: Window;
+  rootPage: string;
+
   constructor(
     private navCtrl: NavController,
     private platform: Platform,
@@ -33,22 +40,9 @@ export class AppComponent {
     });
   }
 
-  public appPages = [
-    { title: 'Home', url: 'home', icon: 'home' },
-    { title: 'About', url: '/about', icon: 'people' },
-    { title: 'Contact', url: '/contact', icon: 'call' },
-    { title: 'Gallery', url: '/gallery', icon: 'images' },
-    {
-      title: 'Setting',
-
-      icon: 'settings',
-      children: [
-        { title: 'sub-menu1', url: '/sub-menu1', icon: 'person' },
-        { title: 'sub-menu2', url: '/sub-menu2', icon: 'person' },
-        { title: 'sub-menu3', url: '/sub-menu3', icon: 'pulse' },
-      ],
-    },
-  ];
+  async ionViewWillEnter() {
+    this.setRootPage();
+  }
 
   async setRootPage() {
     let isLoggedIn = await this._helpers.get('user_id');
@@ -57,7 +51,6 @@ export class AppComponent {
 
     if (isLoggedIn) {
       console.log('isLoggedIn', isLoggedIn);
-
       this.goToPage('/home');
     } else {
       this.goToPage('/login');
@@ -66,6 +59,15 @@ export class AppComponent {
     //   console.log('just boarding');
     // }
   }
+
+  // async getUserDetails() {
+  //   this.user = await this._helpers.getUser();
+  //   if (this.user.membership_type === 'admin') {
+  //     console.log('adminstatus');
+  //   } else if (this.user.membership_type === 'user') {
+  //     console.log('userstatus');
+  //   }
+  // }
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -87,9 +89,8 @@ export class AppComponent {
       }
     );
 
-    this._helpers.clearDb().then(() => {
-      this.goToPage('login');
-    });
+    this._helpers.clearDb();
+    this.goToPage('');
     console.log(this._helpers.get(StorageKey.user));
   }
 

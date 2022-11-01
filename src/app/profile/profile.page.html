@@ -23,13 +23,30 @@
 
     <ion-row>
       <ion-col size="12">
-        <h3 class="ion-text-center">Rolex</h3>
-        <p>facebook_url <span>{{details?.facebook_url}}</span></p>
-        <p>instagram_url <span>{{details?.instagram_url}}</span></p>
-        <p>twitter_url <span>{{details?.instagram_url}}</span></p>
-        <p>snapchat id <span>{{details?.snapchat_id}}</span></p>
-        <p>occupation <span>{{details?.occupation}}</span></p>
+        <h3 class="ion-text-center">Social Links</h3>
+        <p>
+          facebook_url
+          <span>{{details?.facebook_url ? details?.facebook_url : '---'}}</span>
+        </p>
+        <p>
+          instagram_url
+          <span
+            >{{details?.instagram_url ? details?.instagram_url: '---'}}</span
+          >
+        </p>
+        <p>
+          snapchat id
+          <span>{{details?.snapchat_id ? details?.instagram_url: '---'}}</span>
+        </p>
+        <p>
+          occupation
+          <span>{{details?.occupation ? details?.occupation: '---'}}</span>
+        </p>
       </ion-col>
     </ion-row>
+
+    <ion-button class="btn btn-primary" (click)="logout()"
+      ><ion-icon name="exit" slot="start"></ion-icon>logout</ion-button
+    >
   </div>
 </ion-content>

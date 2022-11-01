@@ -1,7 +1,7 @@
 ion-header {
   // --ion-background-color: #f2edf2;
   --ion-background-color: #711bd4;
-  ion-menu-button {
+  ion-back-button {
     --color: #ffffff;
   }
 }
@@ -37,6 +37,7 @@ h2 {
 }
 p {
   font-weight: 500;
+  font-size: 16px;
   color: #000000;
   letter-spacing: 2px;
 }

@@ -1,7 +1,7 @@
 ion-header {
   --ion-background-color: #711bd4;
 
-  ion-menu-button {
+  ion-back-button {
     --color: #ffffff !important;
   }
 }
@@ -13,6 +13,13 @@ ion-content {
 ion-item {
   margin-top: 10px;
   --ion-background-color: #f8f7ff !important;
+
+  ion-label {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
 }
 
 ion-button {
