@@ -47,6 +47,22 @@
       <ion-button (click)="switch()"
         >{{seeMore ? 'see more' : 'see less'}}</ion-button
       >
+      <!-- <div class="qrcodeImage">
+        <qrcode
+          #code
+          [qrdata]="details?.plate_number "
+          (qrCodeURL)="onChangeURL($event)"
+          [allowEmptyString]="true"
+          [cssClass]="'center'"
+          [colorLight]="'#ffffff'"
+          [colorDark]="'#711bd4'"
+          [elementType]="'canvas'"
+          [errorCorrectionLevel]="'M'"
+          [scale]="128"
+          [width]="200"
+        ></qrcode>
+      </div>
+      <a [href]="qrCodeDownloadLink" class="a" download="qrcode">Download</a> -->
     </ion-col>
   </ion-row>
 </ion-content>

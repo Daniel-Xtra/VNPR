@@ -18,12 +18,14 @@ import { ProfileProvider } from 'src/providers/profile/profile';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { FileTransfer } from '@awesome-cordova-plugins/file-transfer/ngx';
 import { ReportProvider } from 'src/providers/report/report';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
+    QRCodeModule,
 
     IonicModule.forRoot({
       animated: false,

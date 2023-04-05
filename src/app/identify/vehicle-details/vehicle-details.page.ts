@@ -5,7 +5,14 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-underscore-dangle */
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { SafeUrl } from '@angular/platform-browser';
+
+import {
+  AlertController,
+  NavController,
+  Platform,
+  ToastController,
+} from '@ionic/angular';
 import { StorageKey } from 'src/app/app.enums';
 import { Helpers } from 'src/app/app.helpers';
 import { VehicleProvider } from 'src/providers/vehicle/vehicle';
@@ -20,11 +27,14 @@ export class VehicleDetailsPage {
   plate;
   seeMore = true;
   user: any;
+  data: any;
+  public qrCodeDownloadLink: SafeUrl = '';
   constructor(
     private _helpers: Helpers,
     private vehicle: VehicleProvider,
     private alertCtrl: AlertController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private platform: Platform
   ) {
     this.getData();
     this.getUserDetails();
@@ -36,9 +46,13 @@ export class VehicleDetailsPage {
       this._helpers.dismissLoader();
       res.forEach((element) => {
         this.details = element;
+        this.data = [this.details.plate_number, this.details.status];
       });
-      console.log(res, this.details.plate_number);
     });
+  }
+
+  onChangeURL(url: SafeUrl) {
+    this.qrCodeDownloadLink = url;
   }
 
   async del() {
@@ -76,5 +90,19 @@ export class VehicleDetailsPage {
 
   async getUserDetails() {
     this.user = await this._helpers.getUser();
+  }
+
+  private async _readAsBase64(url: string): Promise<string> {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return await this._convertBlobToBase64(blob);
+  }
+  private async _convertBlobToBase64(blob: Blob): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => reject();
+      reader.onload = () => resolve(reader.result as string);
+      reader.readAsDataURL(blob);
+    });
   }
 }

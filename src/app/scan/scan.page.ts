@@ -65,6 +65,7 @@ export class ScanPage implements AfterViewInit, OnDestroy {
 
   stopScanner() {
     BarcodeScanner.stopScan();
+
     this.scanActive = false;
   }
 

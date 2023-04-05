@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { VehicleDetailsPageRoutingModule } from './vehicle-details-routing.module';
 
 import { VehicleDetailsPage } from './vehicle-details.page';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VehicleDetailsPageRoutingModule
+    QRCodeModule,
+    VehicleDetailsPageRoutingModule,
   ],
-  declarations: [VehicleDetailsPage]
+  declarations: [VehicleDetailsPage],
 })
 export class VehicleDetailsPageModule {}
